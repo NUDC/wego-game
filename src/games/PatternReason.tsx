@@ -449,9 +449,11 @@ export default function PatternReason({ difficulty, onComplete }: Props) {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          gap: 8,
-          flexWrap: 'wrap',
+          gap: 6,
+          flexWrap: 'nowrap',
+          overflowX: 'auto',
           margin: '24px 0',
+          padding: '8px 4px',
         }}
       >
         {question.sequence.map((item, index) => (
@@ -459,14 +461,15 @@ export default function PatternReason({ difficulty, onComplete }: Props) {
             key={index}
             className="pattern-cell"
             style={{
-              width: 70,
-              height: 70,
+              width: 48,
+              height: 48,
+              minWidth: 48,
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
               border: '2px solid var(--border, #ccc)',
               borderRadius: 8,
-              fontSize: item.length > 4 ? '0.9rem' : '1.4rem',
+              fontSize: item.length > 4 ? '0.75rem' : '1.15rem',
               backgroundColor: 'var(--surface, #fff)',
               userSelect: 'none',
               flexShrink: 0,
@@ -478,14 +481,15 @@ export default function PatternReason({ difficulty, onComplete }: Props) {
         <div
           className="pattern-cell pattern-question-mark"
           style={{
-            width: 70,
-            height: 70,
+            width: 48,
+            height: 48,
+            minWidth: 48,
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             border: '2px dashed var(--accent, #3498db)',
             borderRadius: 8,
-            fontSize: '1.6rem',
+            fontSize: '1.3rem',
             fontWeight: 'bold',
             color: 'var(--accent, #3498db)',
             backgroundColor: 'var(--surface, #fff)',

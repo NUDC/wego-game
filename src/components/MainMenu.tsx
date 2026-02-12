@@ -121,6 +121,7 @@ export default function MainMenu({ scores, bestScores, recordCount, onStartGame,
       {/* 页脚 */}
       <div className="site-footer">
         <div className="site-footer-tagline">2026 中国康复医学会认知科普大赛参赛作品 · 闭老师小组</div>
+        <div className="site-footer-version">v{APP_VERSION}</div>
       </div>
 
       {selectedGameConfig && (
@@ -163,7 +164,25 @@ export default function MainMenu({ scores, bestScores, recordCount, onStartGame,
               </div>
               <div className="about-section">
                 <div className="about-label">作品简介</div>
-                <p>本作品包含 {GAMES.length} 个认知训练小游戏，覆盖记忆力、注意力、执行功能、语言能力、视空间、处理速度、工作记忆、计算能力、推理判断九大认知域。每个游戏基于临床循证的认知评估/训练范式改编，兼具科学性与趣味性。完成全部训练后可生成个人九维认知能力雷达图。</p>
+                <p>"认知乐园"是一款面向全年龄公众的认知训练科普 Web 应用。包含 {GAMES.length} 个小游戏，覆盖 9 大认知功能域，每个游戏基于临床循证的认知评估/训练范式改编，兼具科学性与趣味性。完成全部游戏后生成个人"认知能力画像"（九维雷达图）。</p>
+              </div>
+              <div className="about-section">
+                <div className="about-label">游戏与临床原型</div>
+                <table className="about-table">
+                  <thead><tr><th>游戏</th><th>认知域</th><th>临床原型</th></tr></thead>
+                  <tbody>
+                    <tr><td>记忆翻翻乐</td><td>记忆力</td><td>配对记忆任务</td></tr>
+                    <tr><td>舒尔特方格</td><td>注意力</td><td>Schulte Grid</td></tr>
+                    <tr><td>颜色词挑战</td><td>执行功能</td><td>Stroop 色词测验</td></tr>
+                    <tr><td>词语分类</td><td>语言能力</td><td>语义分类任务</td></tr>
+                    <tr><td>路径记忆</td><td>视空间</td><td>Corsi Block Task</td></tr>
+                    <tr><td>闪电反应</td><td>处理速度</td><td>简单反应时测试</td></tr>
+                    <tr><td>数字倒背</td><td>工作记忆</td><td>数字广度倒背测验</td></tr>
+                    <tr><td>心算挑战</td><td>计算能力</td><td>限时心算任务</td></tr>
+                    <tr><td>图形推理</td><td>推理判断</td><td>类 Raven 矩阵推理</td></tr>
+                  </tbody>
+                </table>
+                <p style={{ marginTop: 8, fontSize: '0.8rem', color: 'var(--text-secondary)' }}>每个游戏提供 3 个难度等级（简单/普通/困难），适配儿童到老年人。</p>
               </div>
               <div className="about-section">
                 <div className="about-label">设计理念</div>

@@ -285,6 +285,13 @@ body {
   padding: 4px 0;
 }
 
+.site-footer-version {
+  text-align: center;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
 /* ========== 认知画像提示 ========== */
 
 .radar-prompt {
@@ -661,6 +668,30 @@ body {
   color: var(--text);
   line-height: 1.6;
   margin: 0;
+}
+
+.about-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+.about-table th,
+.about-table td {
+  padding: 5px 6px;
+  text-align: left;
+  border-bottom: 1px solid #e8ecf1;
+}
+
+.about-table th {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+}
+
+.about-table td {
+  color: var(--text);
 }
 
 /* ========== 游戏通用 ========== */
@@ -1629,19 +1660,22 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  gap: 6px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   margin-bottom: 32px;
   padding: 16px;
 }
 
 .pattern-cell {
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.15rem;
   background: white;
   border: 2px solid #e0e0e0;
   border-radius: var(--radius-sm);
@@ -1650,12 +1684,13 @@ body {
 }
 
 .pattern-question-mark {
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.3rem;
   font-weight: 700;
   background: #fff8e1;
   border: 3px dashed var(--accent);
