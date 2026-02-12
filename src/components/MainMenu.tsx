@@ -130,8 +130,8 @@ export default function MainMenu({ scores, bestScores, recordCount, onStartGame,
       )}
 
       {introGameConfig && introGame && (
-        <div className="intro-overlay" onClick={() => setIntroGame(null)}>
-          <div className="intro-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="intro-overlay">
+          <div className="intro-modal">
             <div className="intro-header">
               <span className="intro-header-icon">{introGameConfig.icon}</span>
               <div>
@@ -166,8 +166,8 @@ export default function MainMenu({ scores, bestScores, recordCount, onStartGame,
       )}
 
       {showAbout && (
-        <div className="intro-overlay" onClick={() => setShowAbout(false)}>
-          <div className="about-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="intro-overlay">
+          <div className="about-modal">
             <div className="about-badge">参赛作品</div>
             <h3>认知乐园</h3>
             <p className="about-subtitle">脑力训练科普游戏</p>

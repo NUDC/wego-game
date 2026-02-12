@@ -138,8 +138,8 @@ export default function TrainingHistory({ onBack }: Props) {
 
       {/* 确认弹窗 */}
       {showConfirm && (
-        <div className="difficulty-overlay" onClick={() => setShowConfirm(false)}>
-          <div className="difficulty-modal" onClick={e => e.stopPropagation()}>
+        <div className="difficulty-overlay">
+          <div className="difficulty-modal">
             <h3>确认清除</h3>
             <p style={{ color: 'var(--text-secondary)', margin: '16px 0' }}>
               将清除所有训练记录和最高分，此操作不可撤销。

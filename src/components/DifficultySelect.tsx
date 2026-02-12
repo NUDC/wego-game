@@ -11,8 +11,8 @@ interface DifficultySelectProps {
 
 export default function DifficultySelect({ gameName, gameIcon, howToPlay, onSelect, onClose, onShowIntro }: DifficultySelectProps) {
   return (
-    <div className="difficulty-overlay" onClick={onClose}>
-      <div className="difficulty-modal" onClick={(e) => e.stopPropagation()}>
+    <div className="difficulty-overlay">
+      <div className="difficulty-modal">
         <div className="difficulty-header">
           <span className="difficulty-header-icon">{gameIcon}</span>
           <h3>{gameName}</h3>
