@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { GameId, Difficulty, Scores, GAMES } from '../types'
-import { gameIntros } from '../data/knowledge'
+import { gameIntros, knowledgeCards } from '../data/knowledge'
 import DifficultySelect from './DifficultySelect'
 
 interface MainMenuProps {
@@ -34,11 +34,6 @@ export default function MainMenu({ scores, bestScores, recordCount, onStartGame,
     }
   }
 
-  const handleIntroClick = (e: React.MouseEvent, gameId: GameId) => {
-    e.stopPropagation()
-    setIntroGame(gameId)
-  }
-
   return (
     <div className="app-container">
       {/* 页头 */}
@@ -65,22 +60,14 @@ export default function MainMenu({ scores, bestScores, recordCount, onStartGame,
       <div className="game-grid">
         {GAMES.map((game) => {
           const best = bestScores[game.id]
+          const done = scores[game.id] !== null
           return (
             <div
               key={game.id}
-              className="game-card"
+              className={`game-card${done ? ' game-card-done' : ''}`}
               onClick={() => setSelectedGame(game.id)}
-              style={{ borderColor: scores[game.id] !== null ? game.color : undefined }}
+              style={{ borderColor: done ? game.color : undefined }}
             >
-              {best !== null && best > 0 && (
-                <div className="game-card-score">最高 {best}分</div>
-              )}
-              <button
-                className="game-card-info"
-                onClick={(e) => handleIntroClick(e, game.id)}
-              >
-                简介
-              </button>
               <div className="game-card-icon">{game.icon}</div>
               <div className="game-card-name">{game.name}</div>
               <div
@@ -90,6 +77,11 @@ export default function MainMenu({ scores, bestScores, recordCount, onStartGame,
                 {game.domain}
               </div>
               <div className="game-card-desc">{game.description}</div>
+              {best !== null && best > 0 && (
+                <div className="game-card-best" style={{ color: game.color }}>
+                  ★ {best}分
+                </div>
+              )}
             </div>
           )
         })}
@@ -131,15 +123,41 @@ export default function MainMenu({ scores, bestScores, recordCount, onStartGame,
           howToPlay={selectedGameConfig.howToPlay}
           onSelect={handleSelectDifficulty}
           onClose={() => setSelectedGame(null)}
+          onShowIntro={() => {
+            setIntroGame(selectedGame)
+          }}
         />
       )}
 
       {introGameConfig && introGame && (
         <div className="intro-overlay" onClick={() => setIntroGame(null)}>
           <div className="intro-modal" onClick={(e) => e.stopPropagation()}>
-            <div className="intro-icon">{introGameConfig.icon}</div>
-            <h3>{gameIntros[introGame].title}</h3>
-            <p>{gameIntros[introGame].content}</p>
+            <div className="intro-header">
+              <span className="intro-header-icon">{introGameConfig.icon}</span>
+              <div>
+                <h3>{introGameConfig.name}</h3>
+                <span className="intro-header-domain" style={{ backgroundColor: introGameConfig.color, color: 'white' }}>
+                  {introGameConfig.domain}
+                </span>
+              </div>
+            </div>
+            <div className="intro-modal-body">
+              <div className="intro-section">
+                <div className="intro-section-label">认知科普</div>
+                <p>{gameIntros[introGame].content}</p>
+              </div>
+              <div className="intro-section">
+                <div className="intro-section-label">健康贴士</div>
+                <div className="intro-tips">
+                  {knowledgeCards[introGame].map((card) => (
+                    <div key={card.id} className="intro-tip">
+                      <div className="intro-tip-title">{card.title}</div>
+                      <div className="intro-tip-content">{card.content}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
             <button className="btn btn-primary btn-block" onClick={() => setIntroGame(null)}>
               知道了
             </button>

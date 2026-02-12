@@ -443,62 +443,19 @@ export default function PatternReason({ difficulty, onComplete }: Props) {
         </div>
       </div>
 
-      <div
-        className="pattern-sequence"
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: 6,
-          flexWrap: 'nowrap',
-          overflowX: 'auto',
-          margin: '24px 0',
-          padding: '8px 4px',
-        }}
-      >
+      <div className="pattern-sequence">
         {question.sequence.map((item, index) => (
           <div
             key={index}
             className="pattern-cell"
             style={{
-              width: 48,
-              height: 48,
-              minWidth: 48,
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              border: '2px solid var(--border, #ccc)',
-              borderRadius: 8,
-              fontSize: item.length > 4 ? '0.75rem' : '1.15rem',
-              backgroundColor: 'var(--surface, #fff)',
-              userSelect: 'none',
-              flexShrink: 0,
+              fontSize: item.length > 4 ? '0.7em' : undefined,
             }}
           >
             {item}
           </div>
         ))}
-        <div
-          className="pattern-cell pattern-question-mark"
-          style={{
-            width: 48,
-            height: 48,
-            minWidth: 48,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            border: '2px dashed var(--accent, #3498db)',
-            borderRadius: 8,
-            fontSize: '1.3rem',
-            fontWeight: 'bold',
-            color: 'var(--accent, #3498db)',
-            backgroundColor: 'var(--surface, #fff)',
-            userSelect: 'none',
-            flexShrink: 0,
-          }}
-        >
-          ?
-        </div>
+        <div className="pattern-cell pattern-question-mark">?</div>
       </div>
 
       {feedback && (

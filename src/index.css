@@ -431,41 +431,11 @@ body {
   overflow: hidden;
 }
 
-.game-card-score {
-  position: absolute;
-  top: 8px;
-  right: 8px;
+.game-card-best {
   font-size: 0.7rem;
   font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 10px;
-  background: var(--success);
-  color: white;
-}
-
-.game-card-info {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  border-radius: 10px;
-  border: none;
-  background: var(--primary);
-  color: white;
-  font-size: 0.65rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  padding: 3px 8px;
-  line-height: 1;
-  letter-spacing: 0.5px;
-  opacity: 0.85;
-  transition: opacity 0.15s;
-}
-
-.game-card-info:active {
-  opacity: 1;
+  margin-top: auto;
+  padding-top: 6px;
 }
 
 .result-btn-wrapper {
@@ -507,15 +477,13 @@ body {
 
 .difficulty-header-icon {
   font-size: 1.6rem;
+  line-height: 1;
 }
 
 .difficulty-header h3 {
   font-size: 1.3rem;
-}
-
-.difficulty-modal h3 {
-  font-size: 1.3rem;
-  margin-bottom: 20px;
+  margin: 0;
+  line-height: 1;
 }
 
 .difficulty-howto {
@@ -525,8 +493,25 @@ body {
   background: var(--bg);
   border-radius: var(--radius-sm);
   padding: 10px 14px;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
   text-align: left;
+}
+
+.difficulty-intro-link {
+  display: block;
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.difficulty-intro-link:active {
+  opacity: 0.7;
 }
 
 .difficulty-options {
@@ -579,29 +564,91 @@ body {
 .intro-modal {
   background: var(--card);
   border-radius: var(--radius);
-  padding: 32px 24px;
-  max-width: 440px;
+  padding: 24px 20px;
+  max-width: 460px;
   width: 100%;
-  text-align: center;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
   animation: slideUp 0.3s ease;
 }
 
-.intro-icon {
-  font-size: 3rem;
-  margin-bottom: 12px;
-}
-
-.intro-modal h3 {
-  font-size: 1.3rem;
+.intro-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin-bottom: 16px;
 }
 
-.intro-modal p {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: 24px;
+.intro-header-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.intro-header h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0 0 4px;
+}
+
+.intro-header-domain {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.intro-modal-body {
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  padding-right: 4px;
+}
+
+.intro-section {
+  margin-bottom: 14px;
+}
+
+.intro-section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.intro-section p {
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin: 0;
   text-align: left;
+}
+
+.intro-tips {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.intro-tip {
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.intro-tip-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.intro-tip-content {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 /* ========== 关于弹窗 ========== */
@@ -1658,43 +1705,35 @@ body {
 
 .pattern-sequence {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 6px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  margin-bottom: 32px;
-  padding: 16px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 8px 0;
 }
 
 .pattern-cell {
-  width: 48px;
-  height: 48px;
-  min-width: 48px;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   background: white;
   border: 2px solid #e0e0e0;
   border-radius: var(--radius-sm);
   user-select: none;
   -webkit-user-select: none;
+  white-space: nowrap;
 }
 
 .pattern-question-mark {
-  width: 48px;
-  height: 48px;
-  min-width: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 1.3rem;
   font-weight: 700;
   background: #fff8e1;
   border: 3px dashed var(--accent);
-  border-radius: var(--radius-sm);
   color: var(--accent);
 }
 
@@ -2037,6 +2076,87 @@ body {
   .stroop-word {
     font-size: 2.2rem;
   }
+
+  .intro-overlay {
+    padding: 10px;
+  }
+
+  .intro-modal {
+    padding: 16px 12px;
+    max-height: 90vh;
+  }
+
+  .intro-header-icon {
+    font-size: 1.8rem;
+  }
+
+  .intro-header h3 {
+    font-size: 1rem;
+  }
+
+  .intro-section p {
+    font-size: 0.78rem;
+  }
+
+  .intro-tip {
+    padding: 8px 10px;
+  }
+
+  .intro-tip-title {
+    font-size: 0.75rem;
+  }
+
+  .intro-tip-content {
+    font-size: 0.7rem;
+  }
+
+  .about-modal {
+    padding: 16px 12px;
+    max-height: 90vh;
+  }
+
+  .about-modal h3 {
+    font-size: 1.05rem;
+  }
+
+  .about-section {
+    padding: 8px 10px;
+    margin-bottom: 6px;
+  }
+
+  .about-label {
+    font-size: 0.65rem;
+  }
+
+  .about-section p {
+    font-size: 0.73rem;
+    line-height: 1.5;
+  }
+
+  .about-table {
+    font-size: 0.65rem;
+  }
+
+  .about-table th,
+  .about-table td {
+    padding: 3px 4px;
+  }
+
+  .about-table th:last-child,
+  .about-table td:last-child {
+    max-width: 80px;
+    word-break: break-all;
+  }
+
+  .pattern-cell {
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+
+  .pattern-sequence {
+    gap: 6px;
+  }
 }
 
 /* 普通手机 (381px - 640px) */
@@ -2067,6 +2187,37 @@ body {
   .page-subtitle {
     margin-bottom: 16px;
   }
+
+  .intro-overlay {
+    padding: 12px;
+  }
+
+  .intro-modal {
+    padding: 20px 16px;
+    max-height: 90vh;
+  }
+
+  .about-modal {
+    padding: 20px 16px;
+    max-height: 90vh;
+  }
+
+  .about-section {
+    padding: 8px 12px;
+  }
+
+  .about-section p {
+    font-size: 0.75rem;
+  }
+
+  .about-table {
+    font-size: 0.7rem;
+  }
+
+  .about-table th,
+  .about-table td {
+    padding: 4px 5px;
+  }
 }
 
 /* 平板竖屏 (641px - 850px) */
@@ -2096,6 +2247,12 @@ body {
     font-size: 0.7rem;
     -webkit-line-clamp: 2;
   }
+
+  .pattern-cell {
+    width: 58px;
+    height: 58px;
+    font-size: 1.4rem;
+  }
 }
 
 /* 平板横屏 / 小桌面 (851px+) */
@@ -2124,5 +2281,11 @@ body {
 
   .game-card:hover {
     transform: translateY(-6px);
+  }
+
+  .pattern-cell {
+    width: 64px;
+    height: 64px;
+    font-size: 1.5rem;
   }
 }

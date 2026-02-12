@@ -6,9 +6,10 @@ interface DifficultySelectProps {
   howToPlay: string
   onSelect: (difficulty: Difficulty) => void
   onClose: () => void
+  onShowIntro?: () => void
 }
 
-export default function DifficultySelect({ gameName, gameIcon, howToPlay, onSelect, onClose }: DifficultySelectProps) {
+export default function DifficultySelect({ gameName, gameIcon, howToPlay, onSelect, onClose, onShowIntro }: DifficultySelectProps) {
   return (
     <div className="difficulty-overlay" onClick={onClose}>
       <div className="difficulty-modal" onClick={(e) => e.stopPropagation()}>
@@ -17,6 +18,11 @@ export default function DifficultySelect({ gameName, gameIcon, howToPlay, onSele
           <h3>{gameName}</h3>
         </div>
         <div className="difficulty-howto">{howToPlay}</div>
+        {onShowIntro && (
+          <button className="difficulty-intro-link" onClick={onShowIntro}>
+            了解科普知识 →
+          </button>
+        )}
         <div className="difficulty-options">
           <button className="difficulty-btn" onClick={() => onSelect('easy')}>
             <strong>简单</strong>
